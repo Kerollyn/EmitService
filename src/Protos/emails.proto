@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "EmailService";
+
+service GrpcEmail {
+  rpc GetAllEmails (GetAllRequest) returns (EmailResponse);
+}
+
+message GetAllRequest {}
+
+message GrpcEmailModel{
+  int32 emailId = 1;
+  string emailuiid = 2;
+  string caller = 3;
+}
+
+message EmailResponse {
+  repeated GrpcEmailModel email = 1;
+}
